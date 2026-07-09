@@ -45,7 +45,6 @@ build/
 # Variables de entorno y credenciales
 .env
 *.env
-config_remoto.json
 
 # Sistema operativo
 .DS_Store
