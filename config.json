@@ -1,0 +1,40 @@
+{
+  "webodm": {
+    "host": "http://localhost:8000",
+    "username": "diegoolivares42005",
+    "password": "adna1234"
+  },
+  "project": {
+    "name": "Edificio Raul Deves",
+    "description": "Vuelo fotogramétrico Campus UC - IPRE IPI-26-704"
+  },
+  "task": {
+    "name": "procesamiento_01",
+    "images_dir": "./FOTOS/03.- Edificio Raúl Deves",
+    "output_dir": "./outputs"
+  },
+  "options": {
+    "orthophoto-resolution": 5,
+    "dsm": true,
+    "dtm": true,
+    "pc-quality": "high",
+    "feature-quality": "high",
+    "min-num-features": 8000,
+    "mesh-size": 200000,
+    "mesh-octree-depth": 11,
+    "use-3dmesh": true,
+    "ignore-gsd": false,
+    "orthophoto-png": false,
+    "cog-geotiff": true
+  },
+  "exports": {
+    "orthophoto_tif": true,
+    "point_cloud_las": true,
+    "model_3d_obj": true,
+    "report_pdf": true
+  },
+  "polling": {
+    "interval_seconds": 30,
+    "timeout_minutes": 180
+  }
+}

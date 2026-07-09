@@ -1,0 +1,62 @@
+# Carpetas con datos pesados (imágenes UAV, modelos 3D, nubes de puntos)
+FOTOS/
+MODELO 3D/
+NUVE_DE_PUNTOS/
+
+# Archivos de imágenes grandes
+*.tif
+*.tiff
+*.las
+*.laz
+*.rcp
+*.rcm
+*.3sm
+
+# Dataset - imágenes (solo se suben labels y estructura)
+dataset/raw/
+dataset/labeled/*/images/
+dataset/yolo/train/images/
+dataset/yolo/val/images/
+dataset/yolo/test/images/
+
+# Modelos entrenados (archivos grandes .pt)
+models/*.pt
+models/*.pth
+
+# Outputs WebODM (resultados pesados)
+outputs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Variables de entorno y credenciales
+.env
+*.env
+config_remoto.json
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Preservar estructura de carpetas
+!**/.gitkeep
