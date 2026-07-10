@@ -1,0 +1,21 @@
+{
+  "preset": "Fast Orthophoto",
+  "pcs": [
+    {
+      "nombre": "Maestro",
+      "ip": "localhost",
+      "images_dir": "G:\\Mi unidad\\03.- PUC\\06.- 2026\\02.- Estudiantes\\06.- DOP\\02.- Fotos",
+      "pipeline": "C:\\webodm_install\\webodm_pipeline.py",
+      "config":   "C:\\webodm_install\\config.json"
+    },
+    {
+      "nombre": "Trabajador A",
+      "ip": "192.168.1.XX",
+      "usuario": "Usuario",
+      "password": "contraseña",
+      "images_dir": "D:\\fotos",
+      "pipeline": "C:\\webodm_install\\webodm_pipeline.py",
+      "config":   "C:\\webodm_install\\config.json"
+    }
+  ]
+}
