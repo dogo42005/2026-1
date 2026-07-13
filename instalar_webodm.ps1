@@ -31,7 +31,10 @@ Log "=== Instalador WebODM para Windows 11 ==="
 # ─────────────────────────────────────────────────────────────────────────────
 # Si WebODM ya está instalado: solo arrancar
 # ─────────────────────────────────────────────────────────────────────────────
-$ubuntuInstalado = wsl --list --quiet 2>$null | Where-Object { $_ -match "Ubuntu" }
+$ubuntuInstalado = $null
+try {
+    $ubuntuInstalado = (wsl --list --quiet 2>&1) | Where-Object { $_ -match "Ubuntu" }
+} catch { $ubuntuInstalado = $null }
 $tareaInicio = Get-ScheduledTask -TaskName $TAREA_INICIO -ErrorAction SilentlyContinue
 
 if ($ubuntuInstalado -and $tareaInicio) {
