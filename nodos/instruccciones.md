@@ -50,7 +50,25 @@ Start-Sleep 15
 wsl -d Ubuntu -u root -- bash -c "systemctl enable docker && systemctl start docker && sleep 5 && docker start nodeodm && sleep 10 && curl -s -o /dev/null -w '%{http_code}' http://localhost:3000"
 ```
 
-**Paso 7 — Agregar en WebODM maestro (.80):**
+**Paso 7 — Port proxy permanente (si mirrored no propaga el puerto):**
+
+Verificar primero desde otro PC si `http://146.155.38.81:3000` responde. Si no, aplicar:
+```powershell
+$wslIp = (wsl -d Ubuntu hostname -I).Trim().Split(' ')[0]
+netsh interface portproxy delete v4tov4 listenport=3000 listenaddress=0.0.0.0
+netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=$wslIp
+```
+
+Para hacerlo permanente (la IP de WSL2 cambia con cada reinicio):
+```powershell
+$cmd = '& { $ip = (wsl -d Ubuntu hostname -I).Trim().Split('' '')[0]; netsh interface portproxy delete v4tov4 listenport=3000 listenaddress=0.0.0.0; netsh interface portproxy add v4tov4 listenport=3000 listenaddress=0.0.0.0 connectport=3000 connectaddress=$ip }'
+$a = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NonInteractive -Command `"$cmd`""
+$t = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
+$p = New-ScheduledTaskPrincipal -UserId $env:USERNAME -RunLevel Highest
+Register-ScheduledTask -TaskName "NodeODM-PortProxy" -Action $a -Trigger $t -Settings (New-ScheduledTaskSettingsSet -RunOnlyIfNetworkAvailable:$false) -Principal $p -Force | Out-Null
+```
+
+**Paso 8 — Agregar en WebODM maestro (.80):**
 
 Abrir `http://146.155.38.80:8000` → Nodos de procesamiento → Agregar nuevo:
 - Nombre de host: `146.155.38.81`
