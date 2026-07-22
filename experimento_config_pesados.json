@@ -1,0 +1,33 @@
+{
+  "webodm": {
+    "host": "http://localhost:8000",
+    "username": "diegoolivares42005",
+    "password": "adna1234"
+  },
+  "project": {
+    "name": "Experimento Paralelo x8 - Pesados",
+    "description": "Experimento de ejecucion paralela WebODM+NodeODM (.81/.82) con los sets mas pesados - IPRE IPI-26-704"
+  },
+  "nodos": [
+    { "hostname": "146.155.38.81", "puerto": 3000, "etiqueta": "PC-81" },
+    { "hostname": "146.155.38.82", "puerto": 3000, "etiqueta": "PC-82" }
+  ],
+  "sets": [
+    { "nombre": "05.- Escuela ECCUC y Enfermeria - Drondeploy", "dir": "./FOTOS/05.- Escuela ECCUC y Enfermería - Drondeploy" },
+    { "nombre": "06.- Edificio C - DroneDeploy",                "dir": "./FOTOS/06.- Edificio C - DroneDeploy" }
+  ],
+  "repeticiones": 4,
+  "options": {
+    "feature-quality": "medium",
+    "pc-quality": "medium",
+    "orthophoto-resolution": 5,
+    "skip-3dmodel": true,
+    "dsm": false,
+    "dtm": false
+  },
+  "output_dir": "./outputs/experimento_paralelo_pesados",
+  "polling": {
+    "interval_seconds": 30,
+    "timeout_minutes": 360
+  }
+}

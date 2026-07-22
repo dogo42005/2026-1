@@ -2,6 +2,7 @@
 FOTOS/
 MODELO 3D/
 NUVE_DE_PUNTOS/
+GCP/
 
 # Archivos de imágenes grandes
 *.tif

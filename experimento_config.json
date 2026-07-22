@@ -1,0 +1,35 @@
+{
+  "webodm": {
+    "host": "http://localhost:8000",
+    "username": "diegoolivares42005",
+    "password": "adna1234"
+  },
+  "project": {
+    "name": "Experimento Paralelo x8",
+    "description": "Experimento de ejecucion paralela WebODM+NodeODM (.81/.82) - IPRE IPI-26-704"
+  },
+  "nodos": [
+    { "hostname": "146.155.38.81", "puerto": 3000, "etiqueta": "PC-81" },
+    { "hostname": "146.155.38.82", "puerto": 3000, "etiqueta": "PC-82" }
+  ],
+  "sets": [
+    { "nombre": "03.- Edificio Raul Deves",                 "dir": "./FOTOS/03.- Edificio Raúl Deves" },
+    { "nombre": "02.- Escuela ECCUC y Enfermeria",           "dir": "./FOTOS/02.- Escuela ECCUC y Enfermería" },
+    { "nombre": "04.- Edificio Y",                           "dir": "./FOTOS/04.- Edificio Y" },
+    { "nombre": "01.- Escuela ECCUC y Salas C",               "dir": "./FOTOS/01.- Escuela ECCUC y Salas C" }
+  ],
+  "repeticiones": 2,
+  "options": {
+    "feature-quality": "medium",
+    "pc-quality": "medium",
+    "orthophoto-resolution": 5,
+    "skip-3dmodel": true,
+    "dsm": false,
+    "dtm": false
+  },
+  "output_dir": "./outputs/experimento_paralelo",
+  "polling": {
+    "interval_seconds": 20,
+    "timeout_minutes": 90
+  }
+}
